@@ -1,0 +1,9 @@
+@import 'tailwindcss/utilities';
+
+:host {
+	@apply flex justify-center;
+}
+
+.sabo-board {
+	@apply grid m-1 p-4 rounded bg-gray-200;
+}

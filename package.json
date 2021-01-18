@@ -1,0 +1,46 @@
+{
+  "name": "saboteur",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "src/main.js",
+  "scripts": {
+    "build:css": "npx tailwindcss-cli@latest build src/styles/main.css -o public/styles.css",
+    "watch:css": "nodemon --watch src -e css --exec \"npm run build:css\"",
+    "serve": "npx reload -b -p 9632 -w src -s public/index.html",
+    "dev": "npx concurrently \"npm run watch:css\" \"npm run serve\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@snowpack/plugin-postcss": "^1.0.11",
+    "autoprefixer": "^10.2.1",
+    "cssnano": "^4.1.10",
+    "esbuild": "^0.8.31",
+    "execa": "^5.0.0",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-import": "^14.0.0",
+    "snowpack": "^3.0.0-rc.2",
+    "tailwindcss": "^2.0.2",
+    "webpack": "^5.12.3",
+    "webpack-cli": "^4.3.1"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-import": {},
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "snowpack": {
+    "plugins": [
+      "./build/plugin-css-raw.js"
+    ],
+    "experiments": {
+      "source": "skypack"
+    }
+  }
+}
